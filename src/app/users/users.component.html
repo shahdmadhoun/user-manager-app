@@ -1,0 +1,29 @@
+<p>users works!</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Status</th>
+      <th scope="col">CR.Date</th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; index as i;">
+      <th>{{ i }}</th>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.Role }}</td>
+      <td>{{ user.Status }}</td>
+      <td>{{ user.CRDate }}</td>
+      <td>
+        <i class="fa fa-edit"></i>
+        <i class="fa fa-user-times"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,33 @@
+.card-deck {
+    height: 200px;
+    width: 50%;
+}
+.card {
+    border: 2px solid black;
+    border-radius: 15px;
+    font-size: 20px;
+}
+/* .input-icons i { 
+    position: absolute;
+    text-align: center; 
+} 
+            
+.input-icons { 
+    width: 100%; 
+    margin-bottom: 10px; 
+} 
+            
+.icon { 
+    padding: 10px;     
+}  */
+            
+.input-field { 
+    width: 100%; 
+    padding: 10px; 
+    text-align: center; 
+    border: 5px solid #ccc;
+} 
+.card-body button {
+    background-color: white;
+    border: none;
+}
