@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddUserComponent implements OnInit {
 
-  users = [ ];
+  users = [{}];
 
     userInfo = this.fb.group({
     Name : new FormControl('', [Validators.required]),
@@ -27,7 +27,7 @@ constructor(private fb: FormBuilder) { }
   get f() { return this.userInfo.controls; }
 
 onSubmit() {
-  this.users.push(this.userInfo.value)
+  this.users.push(this.userInfo.value);
   console.log(this.users);
 }
 
