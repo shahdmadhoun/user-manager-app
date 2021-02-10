@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';  // Firebase modules for Database, Data list and Single object
-import { threadId } from 'worker_threads';
+
+// import { threadId } from 'worker_threads';
 
 export interface user {
   $key: string;
-  Name: string;
-  Email: string
-  Role: string;
-  Status: string;
-  CRDate: string;
-  photo: string;
+  'Name': string;
+  'Email': string
+  'Role': string;
+  'Status': string;
+  'CRDate': string;
+  'photo': string;
 }
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class UserService {
   constructor(private db: AngularFireDatabase) { }
 
   AddUser(user: user) {
+    console.log(user);
     this.userRef.push({
       Name: user.Name,
       Email: user.Email,

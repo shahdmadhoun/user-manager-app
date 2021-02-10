@@ -11,7 +11,7 @@ import { UserService } from '../add/user.service';    // CRUD services API
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  users = [{}];
+  users = [{Name: '', Email: ''}];
 
     userInfo = this.fb.group({
     Name : new FormControl('', [Validators.required]),
@@ -47,7 +47,7 @@ get status() {
   return this.userInfo.get('Status');
 }
 
-get ceDate() {
+get crDate() {
   return this.userInfo.get('CRDate');
 }
 
