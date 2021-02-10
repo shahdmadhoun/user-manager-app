@@ -24,7 +24,7 @@ export class AddUserComponent implements OnInit {
 constructor(private fb: FormBuilder, public userApi: UserService) { }
 
   ngOnInit(): void {
-    this.userApi.GetStudentsList();
+    this.userApi.GetUsersList();
   }
 
   get f() { return this.userInfo.controls; }
@@ -63,10 +63,7 @@ ResetForm() {
 onSubmit() {
   this.userApi.AddUser(this.userInfo.value); // Submit student data using CRUD API
   this.ResetForm();
-
-  this.users.push(this.userInfo.value);
-  console.log(this.users);
-}
+  }
 
 
 }

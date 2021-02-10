@@ -23,7 +23,7 @@ export class UserService {
 
   AddUser(user: user) {
     console.log(user);
-    this.userRef.push({
+    this.db.list('user-manager').push({
       Name: user.Name,
       Email: user.Email,
       Role: user.Role,
@@ -35,17 +35,17 @@ export class UserService {
   
   // Fetch Single Student Object
   GetUser(id: string) {
-    this.userRef = this.db.object('users-list/' + id);
+    this.userRef = this.db.object('user-manager/' + id);
     return this.userRef;
   }
 
   // Fetch Students List
-  GetStudentsList() {
-    this.usersRef = this.db.list('users-list');
+  GetUsersList() {
+    this.usersRef = this.db.list('user-manager');
     return this.usersRef;
   } 
     // Update Student Object
-    UpdateStudent(user: user) {
+    UpdateUser(user: user) {
       this.userRef.update({
         Name: user.Name,
         Email: user.Email,
@@ -56,8 +56,8 @@ export class UserService {
       })
     } 
       // Delete Student Object
-  DeleteStudent(id: string) { 
-    this.userRef = this.db.object('users-list/'+id);
+  DeleteUser(id: string) { 
+    this.userRef = this.db.object('user-manager/'+id);
     this.userRef.remove();
   }
 
