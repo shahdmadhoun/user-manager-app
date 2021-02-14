@@ -19,7 +19,10 @@ export class UserService {
 
   usersRef: AngularFireList<any>;    // Reference to Student data list, its an Observable
   userRef: AngularFireObject<any>;   // Reference to Student object, its an Observable too
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) {
+    this.usersRef = this.db.list('user-manager');
+    this.userRef = this.db.list('user-manager');
+   }
 
   AddUser(user: user) {
     console.log(user);
@@ -60,6 +63,4 @@ export class UserService {
     this.userRef = this.db.object('user-manager/'+id);
     this.userRef.remove();
   }
-
-  
 }

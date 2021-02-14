@@ -1,5 +1,5 @@
 <p>users works!</p>
-<table class="table table-bordered">
+<!-- <table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">Id</th>
@@ -26,4 +26,34 @@
       </td>
     </tr>
   </tbody>
+</table> -->
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col">Status</th>
+            <th scope="col">Creation Date</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <th scope="row">{{user.$key}}</th>
+            <td>
+                <img width="50px" [src]="user.img">{{user.Name}}
+            </td>
+            <td>{{user.Email}}</td>
+            <td>{{user.Role}}</td>
+            <td>{{user.Status}}</td>
+            <td>{{user.CRDate}}</td>
+            <td class="row">
+                <button><i class="fa fa-edit"></i></button>
+                <button (click) = 'deleteUser(user)'><i class="fa fa-user-times"></i></button>
+            </td>
+        </tr>
+    </tbody>
 </table>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { user, UserService } from '../add/user.service';    // CRUD services API
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-users',
@@ -6,16 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-    users = [
-    { name: "name", email: "email", Status: "Status",Role : "role", CRDate: new Date(4, 14, 2000) },
-    { name: "name1", email: "email1", Status: "Status1",Role : "role1", CRDate: new Date(4, 14, 2000) },
-    { name: "name2", email: "email2", Status: "Status2",Role : "role2", CRDate: new Date(4, 14, 2000) },
-    { name: "shahd", email: "shahd@gmail.com", Status: "V",Role : "R", CRDate: new Date(4, 14, 2000) }
-  ];
+  users: user[];
+  closeResult = '';
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private usersService:UserService){
+    this.users = [];
   }
 
+  ngOnInit(): void {
+    this.usersService.GetUsersList().valueChanges().subscribe(data => {});
+    let s = this.usersService.GetUsersList(); 
+    s.snapshotChanges().subscribe(data => {
+      this.users = [];
+      data.forEach(item => {
+        let a = item.payload.toJSON(); 
+        a['$key'] = item.key;
+        this.users.push(a as user);
+      })
+    })
+  }
+
+  deleteUser(user: any) {
+    if (window.confirm('Are sure you want to delete this student ?'))
+      this.usersService.DeleteUser(user.$key) // Using Delete student API to delete student.
+  }
 }
