@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
     s.snapshotChanges().subscribe(data => {
       this.users = [];
       data.forEach(item => {
-        let a = item.payload.toJSON(); 
+        let a:any = item.payload.toJSON(); 
         a['$key'] = item.key;
         this.users.push(a as user);
       })
