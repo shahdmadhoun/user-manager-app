@@ -18,10 +18,9 @@ export interface user {
 export class UserService {
 
   usersRef: AngularFireList<any>;    // Reference to Student data list, its an Observable
-  userRef: AngularFireObject<any>;   // Reference to Student object, its an Observable too
+  userRef: any;   // Reference to Student object, its an Observable too
   constructor(private db: AngularFireDatabase) {
     this.usersRef = this.db.list('user-manager');
-    this.userRef = this.db.list('user-manager');
    }
 
   AddUser(user: user) {
